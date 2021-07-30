@@ -1,0 +1,134 @@
+h2 {
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  font-size: 40px;
+}
+
+.image-gallery-container {
+  font-family: "Roboto", sans-serif;
+}
+
+.image-gallery-container .images {
+  max-width: 800px;
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 8px;
+}
+
+.image-gallery-container .images .image {
+  cursor: pointer;
+}
+
+.image-gallery-container .images img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-gallery-container .images .title {
+  display: none;
+}
+
+.image-gallery-container .lightbox {
+  position: fixed;
+  top: -100%;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 400ms;
+}
+
+.image-gallery-container .lightbox.active {
+  top: 0;
+}
+
+.image-gallery-container .lightbox img {
+  height: 80vh;
+  border-radius: 10px;
+  border: 10px solid white;
+}
+
+.image-gallery-container .lightbox .image {
+  position: relative;
+}
+
+.image-gallery-container .lightbox .title {
+  position: absolute;
+  background: white;
+  padding: 24px 32px;
+  left: 32px;
+  right: 32px;
+  bottom: -6px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.image-gallery-container .lightbox .next-btn,
+.image-gallery-container .lightbox .previous-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  padding: 8px 16px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+.image-gallery-container .lightbox .next-btn {
+  right: -20px;
+}
+
+.image-gallery-container .lightbox .previous-btn {
+  left: -20px;
+}
+
+.image-gallery-container .lightbox .options {
+  position: fixed;
+  top: 32px;
+  right: 32px;
+  background: white;
+  display: none;
+  align-items: center;
+  font-size: 28px;
+  padding: 6px 24px;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.4);
+}
+
+.image-gallery-container .lightbox.active .options {
+  display: flex;
+}
+
+.image-gallery-container .lightbox .close-btn {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.image-gallery-container .lightbox .download-btn {
+  color: black;
+  font-size: 24px;
+}
+
+@media (max-width: 900px) {
+  .image-gallery-container .lightbox img {
+    width: 90vw;
+    object-fit: cover;
+  }
+
+  .image-gallery-container .lightbox .next-btn {
+    right: -10px;
+  }
+
+  .image-gallery-container .lightbox .previous-btn {
+    left: -10px;
+  }
+}
